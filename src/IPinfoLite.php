@@ -18,7 +18,6 @@ use Symfony\Component\HttpFoundation\IpUtils;
  */
 class IPinfoLite
 {
-    const API_URL = "https://api.ipinfo.io/lite";
     const COUNTRY_FLAG_URL = "https://cdn.ipinfo.io/static/images/countries-flags/";
     const STATUS_CODE_QUOTA_EXCEEDED = 429;
     const REQUEST_TIMEOUT_DEFAULT = 2; // seconds
@@ -36,6 +35,7 @@ class IPinfoLite
     const BATCH_MAX_SIZE = 1000;
     const BATCH_TIMEOUT = 5; // seconds
 
+    private $api_url;
     public $access_token;
     public $settings;
     public $cache;
@@ -46,10 +46,11 @@ class IPinfoLite
     public $continents;
     protected $http_client;
 
-    public function __construct($access_token = null, $settings = [])
+    public function __construct($access_token = null, $settings = [], $api_url = 'https://api.ipinfo.io/lite')
     {
         $this->access_token = $access_token;
         $this->settings = $settings;
+        $this->api_url = $api_url;
 
         /*
         Support a timeout first-class, then a `guzzle_opts` key that can
@@ -146,7 +147,7 @@ class IPinfoLite
             }
         }
 
-        $url = self::API_URL;
+        $url = $this->api_url;
         if ($ip_address) {
             $url .= "/$ip_address";
         } else {

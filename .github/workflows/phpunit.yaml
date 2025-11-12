@@ -46,7 +46,7 @@ jobs:
 
     - name: Check PHP Version
       run: php -v
-    
+
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
 
@@ -54,7 +54,7 @@ jobs:
       run: composer install --optimize-autoloader --prefer-dist --ignore-platform-reqs
 
     - name: Run test suite
-      env: 
+      env:
           IPINFO_TOKEN: ${{ secrets.IPINFO_TOKEN }}
           XDEBUG_MODE: "coverage"
       run: /usr/local/bin/phpunit --coverage-html=coverage
