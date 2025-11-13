@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 3.2.0-sgx-patch-1
+
+- Change: api url is now configurable
+
 ### 3.2.0
 
 -   Fixes PHP8.0 support, add symfony/cache ^7.0 support, phpunit 11,12 support

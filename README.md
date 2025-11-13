@@ -1,3 +1,8 @@
+# Fork by Sogexia
+
+It's mandatory for us to mock ipinfo service in local environment, but it was impossible without modify that client
+See this issue https://github.com/ipinfo/php/issues/96 for details
+
 # [<img src="https://ipinfo.io/static/ipinfo-small.svg" alt="IPinfo" width="24"/>](https://ipinfo.io/) IPinfo PHP Client Library
 
 This is the official PHP client library for the [IPinfo.io](https://ipinfo.io) IP address API, allowing you to look up your own IP address, or get any of the following details for an IP:
